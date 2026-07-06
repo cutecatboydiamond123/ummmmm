@@ -3193,6 +3193,7 @@ do --// UI Source
                         Position = UDim2.new(1, 2, 0, 0),
                         Size = UDim2.new(0, 0, 0, 21),
                         ZIndex = -1,
+                        Visible = false,
                         AutomaticSize = Enum.AutomaticSize.X,
                         BackgroundColor3 = Library.Theme["Inline"]
                     }):AddToTheme({BackgroundColor3 = 'Inline'})
@@ -3271,8 +3272,32 @@ do --// UI Source
                         Parent = Items["ActualTitle"].Instance
                     })
 
+                    Items["InsideTitle"] = Library:Create("TextLabel", {
+                        Name = "\0",
+                        FontFace = Library.Font,
+                        TextSize = Library.FontSize - 1,
+                        Parent = Items["MainFrame"].Instance,
+                        TextColor3 = Library.Theme["Accent"],
+                        Text = Window.Name .. os.date(" | %b %d %Y | %H:%M:%S"),
+                        Size = UDim2.new(1, -12, 0, 20),
+                        AnchorPoint = Vector2.new(0.5, 0),
+                        BorderSizePixel = 0,
+                        BackgroundTransparency = 1,
+                        Position = UDim2.new(0.5, 0, 0, 6),
+                        TextXAlignment = Enum.TextXAlignment.Center,
+                        ZIndex = 2
+                    }):AddToTheme({TextColor3 = 'Accent'})
+
                     Window.Items = Items
                 end
+
+                Library:Thread(function()
+                    while task.wait(1) do
+                        if Window.Items and Window.Items["InsideTitle"] then
+                            Window.Items["InsideTitle"].Instance.Text = Window.Name .. os.date(" | %b %d %Y | %H:%M:%S")
+                        end
+                    end
+                end)
 
                 local Debounce = false
 
