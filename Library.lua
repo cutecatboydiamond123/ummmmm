@@ -3128,7 +3128,7 @@ do --// UI Source
                         Name = "\0",
                         Parent = Items["MainFrame"].Instance,
                         BackgroundTransparency = 1,
-                        Position = UDim2.new(0, 6, 0, 6),
+                        Position = UDim2.new(0, 6, 0, 24),
                         Size = UDim2.new(1, -12, 0, 20),
                         BorderSizePixel = 0
                     })
@@ -3144,8 +3144,8 @@ do --// UI Source
                     Items["Content"] = Library:Create("Frame", {
                         Name = "\0",
                         Parent = Items["MainFrame"].Instance,
-                        Position = UDim2.new(0, 8, 0, 32),
-                        Size = UDim2.new(1, -16, 1, -40),
+                        Position = UDim2.new(0, 8, 0, 50),
+                        Size = UDim2.new(1, -16, 1, -58),
                         BorderSizePixel = 0,
                         BackgroundColor3 = Library.Theme["Content"]
                     }):AddToTheme({BackgroundColor3 = 'Content'})
@@ -3274,19 +3274,19 @@ do --// UI Source
 
                     Items["InsideTitle"] = Library:Create("TextLabel", {
                         Name = "\0",
-                        FontFace = Library.Font,
+                        FontFace = Library.BoldFont,
                         TextSize = Library.FontSize - 1,
                         Parent = Items["MainFrame"].Instance,
-                        TextColor3 = Library.Theme["Accent"],
+                        TextColor3 = Color3.fromRGB(255, 255, 255),
                         Text = Window.Name .. os.date(" | %b %d %Y | %H:%M:%S"),
-                        Size = UDim2.new(1, -12, 0, 20),
+                        Size = UDim2.new(1, -12, 0, 16),
                         AnchorPoint = Vector2.new(0.5, 0),
                         BorderSizePixel = 0,
                         BackgroundTransparency = 1,
-                        Position = UDim2.new(0.5, 0, 0, 6),
+                        Position = UDim2.new(0.5, 0, 0, 4),
                         TextXAlignment = Enum.TextXAlignment.Center,
-                        ZIndex = 2
-                    }):AddToTheme({TextColor3 = 'Accent'})
+                        ZIndex = 3
+                    })
 
                     Window.Items = Items
                 end
